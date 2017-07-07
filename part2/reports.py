@@ -1,23 +1,24 @@
-
-def get_most_played(file_name):
+# bonus function words[y]
+def words(file_name, y):
     with open(file_name, mode='r') as txt_file:
         text = txt_file.readlines()
-        most_played_games = {}
+        game_list = []
         for line in text:
             words = line.split("\t")
-            most_played_games[(float(words[1]))] = words[0]
+            game_list.append(words[y])
+        return game_list
 
-        sorted_games = sorted(most_played_games.items(), key=lambda x: float(x[0]), reverse=True)
-        return sorted_games[0][1]
+
+def get_most_played(file_name):
+    most_played_games = zip((float(i) for i in words(file_name, 1)), words(file_name, 0))
+    most_played_games = dict(most_played_games)
+    sorted_games = sorted(most_played_games.items(), key=lambda x: float(x[0]), reverse=True)
+    return sorted_games[0][1]
 
 
 def sum_sold(file_name):
-    with open(file_name, mode='r') as txt_file:
-        text = txt_file.readlines()
-        sold_games = []
-        for line in text:
-            words = line.split("\t")
-            sold_games.append(float(words[1]))
-        sum_sold_games = sum(sold_games)
-        return sum_sold_games
-    
+    return sum(float(i) for i in words(file_name, 1))
+
+
+def get_selling_avg(file_name):
+    return sum_sold(file_name) / len(words(file_name, 1))
