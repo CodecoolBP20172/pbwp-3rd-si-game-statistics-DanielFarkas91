@@ -6,7 +6,7 @@ from reports import (
 def main():
     export_file = "game_stat.txt"
     title = "Guild Wars"
-    
+
     exported_values = [get_most_played(
         export_file), sum_sold(
             export_file), get_selling_avg(
@@ -20,4 +20,3 @@ def main():
 
 
 main()
-

@@ -2,14 +2,13 @@ import math
 
 
 def main():
-    #print(words("game_stat.txt", 4))
-    #print(get_most_played("game_stat.txt"))
-    #print(sum_sold("game_stat.txt"))
-    #print(get_selling_avg("game_stat.txt"))
-    #print(count_longest_title("game_stat.txt"))
-    #print(get_date_avg("game_stat.txt"))
+    print(words("game_stat.txt", 4))
+    print(get_most_played("game_stat.txt"))
+    print(sum_sold("game_stat.txt"))
+    print(get_selling_avg("game_stat.txt"))
+    print(count_longest_title("game_stat.txt"))
+    print(get_date_avg("game_stat.txt"))
     print(get_game("game_stat.txt", "Guild Wars"))
-
 
 
 # bonus function: splitting textlines into coloums.
@@ -25,7 +24,8 @@ def words(file_name, y):
 
 # test 1
 def get_most_played(file_name):
-    most_played_games = zip([float(i) for i in words(file_name, 1)], words(file_name, 0))
+    most_played_games = zip([float(i) for i in words(
+        file_name, 1)], words(file_name, 0))
     sorted_games = sorted(most_played_games, key=lambda x: float(x[0]))
     return sorted_games[-1][1]
 
@@ -58,7 +58,7 @@ def get_game(file_name, title):
     n = 0
     for i in words(file_name, 0):
         if i == title:
-            for z in range(0,5):
+            for z in range(0, 5):
                 property_list.append(words(file_name, z)[n])
         else:
             n += 1
