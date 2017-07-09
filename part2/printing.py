@@ -2,14 +2,14 @@ import math
 
 
 def main():
-    #print(words("game_stat.txt", 4))
-    #print(get_most_played("game_stat.txt"))
-    #print(sum_sold("game_stat.txt"))
-    #print(get_selling_avg("game_stat.txt"))
-    #print(count_longest_title("game_stat.txt"))
-    #print(get_date_avg("game_stat.txt"))
-    #print(get_game("game_stat.txt", "Guild Wars"))
-    #print(count_grouped_by_genre("game_stat.txt"))
+    print(words("game_stat.txt", 4))
+    print(get_most_played("game_stat.txt"))
+    print(sum_sold("game_stat.txt"))
+    print(get_selling_avg("game_stat.txt"))
+    print(count_longest_title("game_stat.txt"))
+    print(get_date_avg("game_stat.txt"))
+    print(get_game("game_stat.txt", "Guild Wars"))
+    print(count_grouped_by_genre("game_stat.txt"))
     print(get_date_ordered("game_stat.txt"))
 
 
@@ -83,7 +83,8 @@ def count_grouped_by_genre(file_name):
 # bonus 2
 def get_date_ordered(file_name):
     x = sorted(sorted(zip([int(i) for i in words(file_name, 2)], [
-        i for i in words(file_name, 0)]), key=lambda x: x[1]), key=lambda x: x[0], reverse=True)
+        i for i in words(file_name, 0)]), key=lambda x: x[1]),
+        key=lambda x: x[0], reverse=True)
     x = list(x)
     x = [b for a, b in x]
     return x

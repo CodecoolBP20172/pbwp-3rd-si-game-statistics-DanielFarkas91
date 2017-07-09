@@ -14,7 +14,7 @@ def main():
                 export_file), count_longest_title(
                 export_file), get_date_avg(
                     export_file), get_game(
-                        export_file, title),count_grouped_by_genre(
+                        export_file, title), count_grouped_by_genre(
                             export_file), get_date_ordered(export_file)]
 
     with open("export.txt", mode='w') as txt_file:

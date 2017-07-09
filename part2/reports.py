@@ -63,7 +63,8 @@ def count_grouped_by_genre(file_name):
 
 def get_date_ordered(file_name):
     x = sorted(sorted(zip([int(i) for i in words(file_name, 2)], [
-        i for i in words(file_name, 0)]), key=lambda x: x[1]), key=lambda x: x[0], reverse=True)
+        i for i in words(file_name, 0)]), key=lambda x: x[1]),
+        key=lambda x: x[0], reverse=True)
     x = list(x)
     x = [b for a, b in x]
     return x
