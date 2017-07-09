@@ -9,7 +9,8 @@ def main():
     #print(count_longest_title("game_stat.txt"))
     #print(get_date_avg("game_stat.txt"))
     #print(get_game("game_stat.txt", "Guild Wars"))
-    print(count_grouped_by_genre("game_stat.txt"))
+    #print(count_grouped_by_genre("game_stat.txt"))
+    print(get_date_ordered("game_stat.txt"))
 
 
 # bonus function: splitting textlines into coloums.
@@ -68,6 +69,7 @@ def get_game(file_name, title):
     return property_list
 
 
+# bonus 1
 def count_grouped_by_genre(file_name):
     genre_count = {}
     for i in words(file_name, 3):
@@ -76,5 +78,15 @@ def count_grouped_by_genre(file_name):
         else:
             genre_count.update({i: 1})
     return genre_count
+
+
+# bonus 2
+def get_date_ordered(file_name):
+    x = sorted(sorted(zip([int(i) for i in words(file_name, 2)], [
+        i for i in words(file_name, 0)]), key=lambda x: x[1]), key=lambda x: x[0], reverse=True)
+    x = list(x)
+    x = [b for a, b in x]
+    return x
+
 
 main()
