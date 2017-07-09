@@ -49,3 +49,13 @@ def get_game(file_name, title):
     property_list[1] = float(property_list[1])
     property_list[2] = int(property_list[2])
     return property_list
+
+
+def count_grouped_by_genre(file_name):
+    genre_count = {}
+    for i in words(file_name, 3):
+        if i in genre_count.keys():
+            genre_count[i] += 1
+        else:
+            genre_count.update({i: 1})
+    return genre_count

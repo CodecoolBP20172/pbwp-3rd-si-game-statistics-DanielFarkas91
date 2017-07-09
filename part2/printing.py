@@ -2,13 +2,14 @@ import math
 
 
 def main():
-    print(words("game_stat.txt", 4))
-    print(get_most_played("game_stat.txt"))
-    print(sum_sold("game_stat.txt"))
-    print(get_selling_avg("game_stat.txt"))
-    print(count_longest_title("game_stat.txt"))
-    print(get_date_avg("game_stat.txt"))
-    print(get_game("game_stat.txt", "Guild Wars"))
+    #print(words("game_stat.txt", 4))
+    #print(get_most_played("game_stat.txt"))
+    #print(sum_sold("game_stat.txt"))
+    #print(get_selling_avg("game_stat.txt"))
+    #print(count_longest_title("game_stat.txt"))
+    #print(get_date_avg("game_stat.txt"))
+    #print(get_game("game_stat.txt", "Guild Wars"))
+    print(count_grouped_by_genre("game_stat.txt"))
 
 
 # bonus function: splitting textlines into coloums.
@@ -66,5 +67,14 @@ def get_game(file_name, title):
     property_list[2] = int(property_list[2])
     return property_list
 
+
+def count_grouped_by_genre(file_name):
+    genre_count = {}
+    for i in words(file_name, 3):
+        if i in genre_count.keys():
+            genre_count[i] += 1
+        else:
+            genre_count.update({i: 1})
+    return genre_count
 
 main()
